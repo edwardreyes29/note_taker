@@ -5,6 +5,7 @@ var app = express();
 var path = require("path");
 
 const PORT = process.env.PORT || 3000;
+
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -47,9 +48,7 @@ app.delete("/api/notes/:id", function(req, res) {
     res.json(filteredNotes); // send response
 })
 
-app.listen(PORT, function() {
-    console.log("App listening on PORT " + PORT);
-});
+app.listen(PORT, () => console.log("App listening on PORT " + PORT));
 
 // Stores notes to db.json
 const writeToJSON = (notes) => {
@@ -60,9 +59,7 @@ const writeToJSON = (notes) => {
 }
 
 // Returns data from db.json
-const getJSONData = () => {
-    return fs.readFileSync(path.join(__dirname, "../../../db/db.json"));
-}
+const getJSONData = () => fs.readFileSync(path.join(__dirname, "../../../db/db.json"));
 
 // Assigns a unique id for each note
 const assignUniqueIds = array => {
