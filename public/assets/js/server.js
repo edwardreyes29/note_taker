@@ -32,21 +32,22 @@ app.get('/assets/css/styles.css', function (req, res) {
     res.sendFile(path.join(__dirname, "../css/styles.css"));
 })
 
-// var notes = [
 
-// ]
-
-// app.get("/api/notes", function (req, res) {
-//     return res.json(notes);
-// });
+app.get("/api/notes", function (req, res) {
+    let rawdata =  getJSONData(); 
+    let notes = JSON.parse(rawdata);
+    res.json(notes);
+});
 
 // Create a new note
 app.post("/api/notes", function (req, res) {
-    let rawdata = fs.readFileSync(path.join(__dirname, "../../../db/db.json"));
+    let rawdata =  getJSONData(); 
     let notes = JSON.parse(rawdata);
 
     var newNote = req.body;
+    console.log(newNote);
     notes.push(newNote);
+    assignIDs(notes);
     writeToJSON(notes);
     res.json(newNote);
 });
@@ -61,3 +62,14 @@ const writeToJSON = (notes) => {
     });
 }
 
+const getJSONData = () => {
+    return fs.readFileSync(path.join(__dirname, "../../../db/db.json"));
+}
+
+const assignIDs = array => {
+    console.log(array)
+    for (let i = 0; i < array.length; i++) {
+        array[i].id = i+1;
+    }
+    return array;
+}

@@ -5,7 +5,7 @@ const $newNoteBtn = $(".new-note");
 const $noteList = $(".list-container .list-group");
 
 // activeNote is used to keep track of the note in the textarea
-let activeNote = {};
+var activeNote = {};
 
 // A function for getting all notes from the db
 const getNotes = () => {
@@ -35,7 +35,7 @@ const deleteNote = (id) => {
 // If there is an activeNote, display it, otherwise render empty inputs
 const renderActiveNote = () => {
   $saveNoteBtn.hide();
-
+  console.log(activeNote);
   if (activeNote.id) {
     $noteTitle.attr("readonly", true);
     $noteText.attr("readonly", true);
@@ -82,7 +82,9 @@ const handleNoteDelete = function (event) {
 
 // Sets the activeNote and displays it
 const handleNoteView = function () {
+  console.log($(this).data());
   activeNote = $(this).data();
+  console.log(activeNote);
   renderActiveNote();
 };
 
