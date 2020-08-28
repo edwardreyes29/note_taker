@@ -10,24 +10,17 @@ This app uses express.js to get and post notes to a json file, allowing users to
 
 ## Process    
   ### Back End Development
-  * I used the Open Weather Api as required by this assignment. I used the Current Weather API,
-    5-day forecast API, and the current UV Index API in order to get the required data.
-  * I used both vanilla javascript, ES6 syntax, jQuery, and Ajax calls to both work with
-    the API and display HTML elements, information, button interactions dynamically.
+  * Learned to work with express to create routes get and post data and send appropriate responses depending on the situation.
 
 ### Technologies used:  
-  HTML, CSS, Bootstrap, JavaScript, OpenWeather API, jQuery
+  HTML, CSS, Bootstrap, JavaScript, Express.js, jQuery
 
 ## CHALLENGES
-  * Mostly working with the layout. This time I did a mobile-first approach which  I wasn't used to.
-  * Also keeping the script.js file organzied and not too crowded, while also working one keeping 
-    the code overall non-repetitive or D.R.Y.
+  * Working with preset code and figuring out what is needed to be done based on what is already given.
 
 ## LINK TO DEPLOYED APPLICATION / GITHUB
 
 [Heroku Deployed Site](https://afternoon-reef-26658.herokuapp.com/)
-
-
 
 ## Screen shots
 
