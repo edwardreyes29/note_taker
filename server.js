@@ -4,7 +4,7 @@ const fs = require('fs');
 var app = express();
 var path = require("path");
 
-const PORT = process.env.PORT || 3000;
+var PORT = process.env.PORT || 3000;
 
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
@@ -14,12 +14,12 @@ app.use(express.static('public'));
 // GET /notes route to return notes.html file
 app.get('/notes', function (req, res) {
     console.log(__dirname);
-    res.sendFile(path.join(__dirname, "../../../public/notes.html"));
+    res.sendFile(path.join(__dirname, "./public/notes.html"));
 })
 
 // GET / route to return index.html file
 app.get('/', function (req, res) {
-    res.sendFile(path.join(__dirname, "../../../public/index.html"));
+    res.sendFile(path.join(__dirname, "./public/index.html"));
 })
 
 // Sends JSON data as a response
@@ -52,13 +52,13 @@ app.listen(PORT, () => console.log("App listening on PORT " + PORT));
 // Stores notes to db.json
 const writeToJSON = (notes) => {
     let data = JSON.stringify(notes, null, 4);
-    fs.writeFile(path.join(__dirname, "../../../db/db.json"), data, (err) => {
+    fs.writeFile(path.join(__dirname, "./db/db.json"), data, (err) => {
         if (err) throw err;
     });
 }
 
 // Returns data from db.json
-const getJSONData = () => fs.readFileSync(path.join(__dirname, "../../../db/db.json"));
+const getJSONData = () => fs.readFileSync(path.join(__dirname, "./db/db.json"));
 
 // Assigns a unique id for each note
 const assignUniqueIds = array => {
