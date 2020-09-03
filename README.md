@@ -1,5 +1,5 @@
 
-# Weather App 
+# Note Taker App
 
 ## AUTHOR
 
